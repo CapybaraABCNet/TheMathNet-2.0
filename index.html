@@ -2,169 +2,115 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TheMathNet</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheMath.NET: Учебный портал по математике и соц.сеть</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .m {
+            color: black;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: appear 2s forwards;
+            margin-bottom: 20px;
+        }
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+         header {
+            background: linear-gradient(135deg, #00c0d1, #00ffc3);
+            color: white;
+            padding: 20px;
+        }
+        .he {
+            background-color: #23232300;
+            color: white;
+            padding: 5px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            border-radius: 50%;
+            width: 60px;
+            margin-right: 15px;
+        }
+        img {
+            width: 250px;
+            border-radius: 15px;
+        }
+        .img {
+            width: 150px;
+            border-radius: 15px;
+        }
+        .container1 {
+            text-align: center;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            margin: 20px auto; 
+        }
+        a {
+            /**color: black;*/
+        }
+    </style>
   </head>
   <body>
-    <header>
-        <div class="logo1">
-            <img src="https://capybaraabcnet.github.io/Tamagochi-Capybara/photo_5228854488398422188_c.jpg" class="logo1"> 
-            <h1 class="m">CapybaraNET.WEB</h1>
+     <header>
+        <div class="logo">
+            <img src="ph.jpg"> 
+            <h1>TheMath.Net</h1>
         </div>
     </header>
-    <div class="w">
-      <h1>TheMathNet</h1>
-      <p>TheMathNet - крутой сайт, где есть разнае мат.функции и их обьяснения, <a href="ob.html">страница с обьяснениями</a></p>
-      <div class="container1">
-        <h2>Навигация по странице</h2>
-        <a href="#calc">Калькулятор</a><br>
-        <a href="#NOD">НОД И НОК</a><br>
-        <a href="#calcd">Калькулятор Дробей</a><br>
-        <a href="#dr">Сравнитель дробей</a><br>
-        <a href="#stepen">Степени</a><br>
-        <a href="#Smesh">Смешанные дроби</a><br>
-        <a href="#Factor">Факториал</a><br>
-        <a href="#fibon">Фибоначчи</a><br>
-        <a href="#log">Логарифмы</a><br>
-        <a href="#coren">Квадратный Корень</a>
-      </div>
-      <div>
-        <div id="calc" class="container1">
-          <h2>Обычный Калькулятор</h2>
-          <p>Введите первое число</p>
-          <input id="chislo1" type="number">
-          <p>Введите второе число</p>
-          <input id="chislo2" type="number">
-          <p>Введите мат. знак</p>
-          <div>
-            <button onclick="pos('+')">+</button>
-            <button onclick="pos('-')">-</button>
-            <button onclick="pos('*')">*</button>
-            <button onclick="pos('/')">/</button>
-          </div>
-          <br>
-          <p id="otvet"></p>
-        </div>
-        <div id="NOD" class="container1">
-          <h2>Считаение НОДа</h2>
-          <p>Введите первое число</p>
-          <input id="perch" placeholder="Введите тут число" type="number">
-          <p>Введите второе число</p>
-          <input id="perch0" placeholder="Введите тут число" type="number"><br> 
-          <button onclick="pposs()">Посчитать</button><br>
-          <p id="rre"></p>
-        </div>
-        <div class="container1">
-          <h2>Считание НОКа</h2>
-          <p>Введите первое число</p><br>
-          <input type="number" id="nok1"><br>
-          <p>Введите второе число</p><br>
-          <input type="number" id="nok2"><br>
-          <button onclick="NOK()">Посчитать</button>
-          <p id="otvetnok"></p>
-        </div>
-        <div id="calcd" class="container1">
-          <h2>Калькулятор дробей</h2>
-            <p>Введите первую Целую часть (если есть, если нет то просто не заполняйте)</p>
-            <input id="cel1" placeholder="0" type="number">
-            <p>Введите первый числитель</p>
-            <input id="chisl1" type="number">
-            <p>Введите первый знаменатель</p>
-            <input id="znam1" type="number">
-            <p>Введите вторую Целую часть (если есть, если нет то просто не заполняйте)</p>
-            <input id="cel2" placeholder="0" type="number">
-            <p>Введите второй числитель</p>
-            <input type="number" id="chisl2">
-            <p>Введите второй знаменатель</p>
-            <input id="znam2" type="number">
-            <div>
-                <button onclick="pos1('+')">+</button>
+    
+    <div class="m">
+        <h2>TheMath.Net - Математический учебный портал и соц-сеть</h2><br>
+        <div>крутое веб-приложение</div><br><br>
+        <img src="ph.jpg">
+        <div>
+            <div class="container1">
+                <h2>План страниц сайта</h2>
+                <a href="index.html">Главная страница</a><br>
+                <a href="calc.html">Калькуляторы</a><br>
+                <a href="bot.html">Чат-Бот</a><br>
+                <!--<a href="forum.php">Форум</a><br>-->
+                <a href="Test.html">Тесты по математике</a><br>
             </div>
-            <br>
-            <p id="result"></p>
+            <div>
+                <h2><strong>TheMathNet</strong></h2>
+                <h6>
+                    
+Математика - это интересно, но иногда бывает сложно. Знакомо чувство, когда смотришь на новую тему и не понимаешь, с чего начать?<br><br><img src="https://img.freepik.com/free-photo/boy-doing-some-mathematical-exercises_329181-14264.jpg"><br><br>
+Именно чтобы помочь себе и другим в этом разобраться, я создал свой проект - математический сайт TheMath.NET.<br><br><img src="https://img.freepik.com/premium-photo/close-up-math-formulas-blackboard_493343-2839.jpg?semt=ais_hybrid&w=740&q=80"><br><br>
+На моём сайте есть несколько разделов, Первый — это калькуляторы. Не просто для сложения и вычитания, а для разных операций: работа с дробями, степени, корни. 2: Чат-бот, там вы сможете узнать много тем по математике, поговорить с ботом и не только. 3: Форум, там вы сможете обсудить разные темы, написать свой пост о математике и многое другое. 4: Это тесты, вы сможете там проверить все свои знания которые усвоили на уроках или на этом сайте.<br><br><img src="https://opinion-images.wsj.net/im-90564937/?size=1.5"><br><br>
+Вам понравится этот сайт, также тут есть мини игры, за которые вы сможете получать внутренюю валюту - CapybaraCoin. За эту валюту вы также сможете покупать улучшения в играх.<br><br><img src="https://media.istockphoto.com/id/536754319/ru/%D1%84%D0%BE%D1%82%D0%BE/%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D1%8B%D0%B5-%D1%80%D0%B0%D1%81%D1%87%D0%B5%D1%82%D1%8B-%D1%84%D0%BE%D1%80%D0%BC%D1%83%D0%BB%D1%8B-%D0%BD%D0%B0-%D1%88%D0%BA%D0%BE%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D0%B5-%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D0%BD%D0%B0%D1%8F-%D0%B4%D0%BE%D1%81%D0%BA%D0%B0.jpg?s=170667a&w=0&k=20&c=eRGPttsbxBDJIC08hTjpR6osnehssmENafV9jrsvcmY="><br><br>
+Мой сайт — это ваш личный помощник в изучении математики. Предлагаю вам его попробовать в деле!<br><img src="https://img.freepik.com/free-photo/colourful-math-numbers-with-notebook-calculator_23-2148416133.jpg?semt=ais_hybrid&w=740"><br><br>
+                </h6>
+                
+            </div>
         </div>
-        <div id="dr" class="container1">
-            <h2>Сравнение дробей</h2>
-            <p>Введите целую часть (если есть)</p>
-            <input id="cel11" placeholder="0" type="number">
-            <p>Введите первый числитель</p>
-            <input id="chisl11" type="number">
-            <p>Введите первый знаменатель</p>
-            <input id="znam11" type="number">
-            <p>Введите вторую Целую часть (если есть, если нет то просто не заполняйте)</p>
-            <input id="cel22" placeholder="0" type="number">
-            <p>Введите второй числитель</p>
-            <input type="number" id="chisl22">
-            <p>Введите второй знаменатель</p>
-            <input id="znam22" type="number">
-            <button onclick="sravn()">Сравнить</button>
-            <p id="result1"></p>
-        </div>
-      </div>
-      <div id="stepen" class="container1">
-        <h2>Превращение в степень</h2>
-        <p>Введите число</p>
-        <input id="chisslo" type="number">
-        <p>Введите в какую надо возвестить в степень</p>
-        <input id="chisslo1" type="number">
-        <button onclick="stepen()">Сравнить</button>
-        <p id="otvet1"></p>
-      </div>
-      <div id="Smesh" class="container1">
-        <h2>Из неправильной дроби, в правильную</h2>
-        <p>Введите числитель</p>
-        <input id="nepr" class="container1">
-        <p>Введите знаменатель</p>
-        <input id="nepr1" class="container1"><br>
-        <button onclick="resh()">Решить</button>
-        <p id="nepr2"></p>
-      </div>
-      <div class="container1">
-        <h2>Из смешанной, в неправильную</h2>
-        <p>Введите целую часть</p>
-        <input id="celll" type="number">
-        <p>Введите числитель</p>
-        <input  id="chisl10" type="number">
-        <p>Введите знаменатель</p>
-        <input id="znam10" type="number">
-        <br>
-        <button onclick="resh1()">Посчитать</button>
-        <p id="ot"></p>
-      </div>
-      <div class="container1" id="Factor">
-        <h2>Факториал</h2>
-        <p>Введите число</p>
-        <input id="factorial" type="number"><br>
-        <button onclick="factor()">Посчитать</button>
-        <p id="posp"></p>
-      </div>
-      <div class="container1" id="fibon">
-        <h2>Числа фибоначчи</h2>
-        <p>Введите число</p>
-        <input type="number" id="ff"><br>
-        <button onclick="fib()">Узнать</button>
-        <p id="otfi"></p>
-      </div>
-      <div class="container1" id="log">
-        <h2>Логарифмы</h2>
-        <p>Пример: log(a) b = c</p>
-        <p>Введите a</p>
-        <input id="aa" type="number">
-        <p>Введите b</p>
-        <input id="bb" type="number"><br>
-        <button onclick="log()">Узнать</button>
-        <p id="otvetaa"></p>
-      </div>
-      <div class="container1" id="coren">
-        <h2>Квадратный Корень</h2>
-        <p>Введите число</p><br>
-        <input type="number" id="core"><br>
-        <button onclick="coren()">Получить</button>
-        <p id="cor"></p>
-      </div>
     </div>
+
+    <div class="card text-center">
+        <div class="card-footer text-body-secondary">
+            <span>©2026 Хуснутдинов Нияз</span>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="script.js"></script>
   </body>
-
 </html>

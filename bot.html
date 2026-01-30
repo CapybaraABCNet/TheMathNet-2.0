@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheMath.NET: Учебный портал по математике и соц.сеть</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .m {
+            color: black;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: appear 2s forwards;
+            margin-bottom: 20px;
+        }
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+         header {
+            background: linear-gradient(135deg, #00c0d1, #00ffc3);
+            color: white;
+            padding: 20px;
+        }
+        .he {
+            background-color: #23232300;
+            color: white;
+            padding: 5px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            border-radius: 50%;
+            width: 60px;
+            margin-right: 15px;
+        }
+        img {
+            width: 250px;
+            border-radius: 15px;
+        }
+        .img {
+            width: 150px;
+            border-radius: 15px;
+        }
+        .container1 {
+            text-align: center;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            margin: 20px auto; 
+        }
+        a {
+            /**color: black;*/
+        }
+        
+
+        .chat-container {
+            width: 400px;
+            height: 600px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background-color: #202c33;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .chat-header h2 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        /* Окно с сообщениями */
+        .chat-window {
+            list-style-type: none;
+            padding: 20px;
+            margin: 0;
+            flex-grow: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Стили для сообщений */
+        .message {
+            padding: 10px 15px;
+            border-radius: 18px;
+            max-width: 75%;
+            word-wrap: break-word;
+            line-height: 1.4;
+        }
+
+        .user-message {
+            background-color: #dcf8c6;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .bot-message {
+            background-color: #ece5dd;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        /* Область с кнопками */
+        .button-area {
+            padding: 15px;
+            background-color: #f0f2f5;
+            border-top: 1px solid #ddd;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .question-button {
+            background-color: #fff;
+            color: #303030;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            padding: 8px 15px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .question-button:hover {
+            background-color: #e9e9e9;
+            transform: scale(1.05);
+        }
+
+        .question-button:active {
+            transform: scale(0.98);
+        }
+    </style>
+  </head>
+  <body>
+     <header>
+        <div class="logo">
+            <img src="ph.jpg"> 
+            <h1>TheMath.Net</h1>
+        </div>
+    </header>
+    
+    <div class="m">
+        <div>
+            <div class="container1">
+                <h2>План страниц сайта</h2>
+                <a href="index.php">Главная страница</a><br>
+                <a href="calc.php">Калькуляторы</a><br>
+                <a href="bot.php">Чат-Бот</a><br>
+                <a href="forum.php">Форум</a><br>
+                <a href="Test.php">Тесты по математике</a><br>
+            </div>
+            <div>
+                <div class="chat-container">
+                <div class="chat-header">
+                    <h2>Помощник</h2>
+                </div>
+                <ul class="chat-window" id="chat-window">
+                    <li class="message bot-message">Здравствуйте! Я ваш помощник. Выберите вопрос, который вас интересует.</li>
+                </ul>
+                <div class="button-area" id="button-area">
+                    <button class="question-button" data-answer="Я - простой математический чат-бот, созданный с помощью HTML, CSS и JavaScript. Моя задача - помогать вам!">Кто ты?</button>
+                    <button class="question-button" data-answer="Я работаю по принципу 'вопрос-ответ'. Вы нажимаете на кнопку, а я даю заготовленный ответ. Просто и удобно!">Как ты работаешь?</button>
+                    <button class="question-button" data-answer="Создатель чат-бота Хуснутдинов Нияз (создатель этого же сайта)">Кто твои создатели?</button>
+                    <button class="question-button" data-answer="НОД — наибольший общий делитель, НОК — наименьшее общее кратное — понятия в математике, связанные с делимостью чисел.
+НОД двух или более чисел — наибольшее число, на которое эти числа можно разделить без остатка. Проще говоря, это самое большое число, которое является делителем для каждого из данных чисел.
+
+НОК двух чисел — наименьшее число, которое делится без остатка и на первое, и на второе число.">Что такое НОД и НОК?</button>
+                    <button class="question-button" data-answer="Дробь в математике — это число, состоящее из одной или нескольких равных частей (долей) единицы. Простым языком, дробь — это часть чего-то целого, например, яблока, пиццы, плитки шоколада или даже времени.
+                    Например: 8/8">Дроби</button>
+                    <button class="question-button" data-answer="Смешанная дробь — это дробь, записанная в виде неотрицательного целого числа и правильной дроби. Понимается как сумма этого числа и дроби.
+                    Например: 1 2/3">Смешанные дроби</button>
+                    <button class="question-button" data-answer="Степень числа в математике — это математическая операция, представляющая собой многократное умножение числа на само себя
+                    Например: 2**3 = 8">Степень</button>
+                    <button class="question-button" data-answer="Факториал числа — это произведение всех натуральных чисел от 1 до заданного числа. Обозначается символом восклицательного знака (!) после числа. Формула: n! = 1 × 2 × 3 × … × n, где n — любое натуральное число.">Факториал</button>
+                    <button class="question-button" data-answer="Числа Фибоначчи — это последовательность чисел, в которой каждое следующее число равно сумме двух предыдущих. В классическом варианте последовательность начинается с 0 и 1, цепочку значений можно продолжать до бесконечности. Пример: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34">Числа Фибоначчи</button>
+                    <button class="question-button" data-answer="Логарифм — это показатель степени, в которую нужно возвести основание, чтобы получить определённое число. Например, если нужно узнать, в какую степень нужно возвести 2, чтобы получить 8, то логарифм 8 по основанию 2 равен 3.">Логарифмы</button>
+                    <button class="question-button" data-answer="Корень — математическое понятие, которое означает число, при возведении которого в определённую степень получается заданное число
+                    Например: √25 = 5">Корень (квадратный)</button>
+                    <button class="question-button" data-answer="Спасибо за общение! Если у вас появятся новые вопросы, я буду здесь. До свидания!">Пока</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="card text-center">
+        <div class="card-footer text-body-secondary">
+            <span>©2026 Хуснутдинов Нияз</span>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script>
+        const windows = document.getElementById("chat-window");
+        const but = document.getElementById("button-area");
+
+        function addMessage(text, use) {
+            const messageEl = document.createElement("li");
+
+            messageEl.classList.add("message");
+            if (use === 'user') {
+                messageEl.classList.add('user-message');
+            } else {
+                messageEl.classList.add('bot-message');
+            }
+
+            messageEl.textContent = text;
+            windows.appendChild(messageEl);
+            windows.scrollTop = windows.scrollHeight;
+        }
+
+        but.addEventListener('click', (event) => {
+            if (event.target.classList.contains('question-button')) {
+                const clickedB = event.target;
+
+                const question = clickedB.textContent;
+                const otvet = clickedB.dataset.answer;
+
+                addMessage(question, 'user');
+
+                setTimeout(() => {
+                    addMessage(otvet, 'bot'); 
+                }, 500);
+            }
+        })
+    </script>
+  </body>
+</html>

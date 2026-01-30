@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheMath.NET: Учебный портал по математике и соц.сеть</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .m {
+            color: black;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: appear 2s forwards;
+            margin-bottom: 20px;
+        }
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+         header {
+            background: linear-gradient(135deg, #00c0d1, #00ffc3);
+            color: white;
+            padding: 20px;
+        }
+        .he {
+            background-color: #23232300;
+            color: white;
+            padding: 5px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            border-radius: 50%;
+            width: 60px;
+            margin-right: 15px;
+        }
+        img {
+            width: 250px;
+            border-radius: 15px;
+        }
+        .img {
+            width: 150px;
+            border-radius: 15px;
+        }
+        .container1 {
+            text-align: center;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            margin: 20px auto; 
+        }
+        a {
+            /**color: black;*/
+        }
+    </style>
+  </head>
+  <body>
+     <header>
+        <div class="logo">
+            <img src="ph.jpg"> 
+            <h1>TheMath.Net</h1>
+        </div>
+    </header>
+    
+    <div class="m">
+        <div>
+            <div class="container1">
+                <h2>План страниц сайта</h2>
+                <a href="index.php">Главная страница</a><br>
+                <a href="calc.php">Калькуляторы</a><br>
+                <a href="bot.php">Чат-Бот</a><br>
+                <a href="forum.php">Форум</a><br>
+                <a href="Test.php">Тесты по математике</a><br>
+            </div>
+            <h1>Тест на стадии разработки</h1>
+            <!--<div>
+                <h2>Тест по дробям</h2>
+                <div class="container1">
+                    <form action="test1.php" method="post">
+                        <h3>2/3 + 4/5</h3> <!-- 2/3 * 5 = 10/15, 4/5 * 3 = 12/15, 10/15 + 12/15=22/15 = 1 7/15
+                        <ol>
+                            <li>
+                                <input type="radio" name="+" value="npr" required>1 5/15<br>
+                                <input type="radio" name="+" value="pr" required>1 7/15<br>
+                                <input type="radio" name="+" value="nrp" required>6/8<br>
+                            </li>
+                        </ol>
+                        <h3>2/3 + 2 2/3</h3> 2 4/3 = 3 1/3
+                        <ol>
+                            <li>
+                                <input type="radio" name="22" value="npr0" required>3<br>
+                                <input type="radio" name="22" value="pr0" required>2 1/3<br>
+                                <input type="radio" name="22" value="nrp00" required>3 1/3<br>
+                            </li>
+                        </ol>
+                        <h3>6/3 - 8/12</h3> 6/3 = 24/12 - 8/12 = 16/12
+                        <ol>
+                            <li>
+                                <input type="radio" name="33" value="npr2" required>3/24<br>
+                                <input type="radio" name="33" value="pr1" required>16/12<br>
+                                <input type="radio" name="33" value="nrp3" required>15/12<br>
+                            </li>
+                        </ol>
+                        <h3>5/4 * 8/7</h3>  5/1 * 2/7 = 10/7 = 1 3/7
+                        <ol>
+                            <li>
+                                <input type="radio" name="44" value="prav" required>1 3/7<br>
+                                <input type="radio" name="44" value="ne" required>1 4/7<br>
+                                <input type="radio" name="44" value="ne" required>5/10<br>
+                            </li>
+                        </ol>
+                        <h3>9/3 : 8/9</h3>  9/1 * 3/8 = 27/8 = 3 3/8
+                        <ol>
+                            <li>
+                                <input type="radio" name="55" value="prav1" required>3 3/8<br>
+                                <input type="radio" name="55" value="ne" required>24<br>
+                                <input type="radio" name="55" value="ne" required>82/92<br>
+                            </li>
+                        </ol>
+                        <input type="submit" value="Отправить">
+                    </form>
+                    
+                </div> 
+            </div>
+        </div> -->
+    </div>
+
+    
+    <div class="card text-center">
+        <div class="card-footer text-body-secondary">
+            <span>©2026 Хуснутдинов Нияз</span>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
