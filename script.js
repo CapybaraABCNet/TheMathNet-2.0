@@ -1,3 +1,19 @@
+function NOD(perch, perch0) {
+    while (perch != 0 && perch0 != 0) {
+        if (perch > perch0) {
+            perch = perch % perch0;
+        } else {
+            perch0 = perch0 % perch;
+        }
+        
+    }
+    return perch + perch0;
+}
+
+function NOK1(a, b) {
+    return a * b / NOD(a, b);
+}
+
 function pos(op) {
     const chislo1 = Number(document.getElementById("chislo1").value);
     const chislo2 = Number(document.getElementById("chislo2").value);
@@ -34,6 +50,12 @@ function pos1(op) {
     var znam1 = Number(document.getElementById("znam1").value);
     var chisl2 = Number(document.getElementById("chisl2").value);
     var znam2 = Number(document.getElementById("znam2").value);
+    var newq = 0;
+    var newq1 = 0;
+    var dro1 = 0;
+    var dro2 = 0;
+    var sccc = 0;
+
     var result;
     
     switch (op) {
@@ -47,6 +69,47 @@ function pos1(op) {
                 result = `${cel1 + cel2} ${new1 + new2}/${new3}`;
             }
             break;
+        case '*':
+            if (cel1 === 0 && cel2 === 0) {
+                newq = NOD(chisl1, znam2);
+                newq1 = NOD(chisl2, znam1);
+                dro1 = (chisl1 / newq) * (chisl2 / newq1);
+                dro2 = (znam1 / newq1) * (znam2 / newq);
+                sccc = NOD(dro1, dro2);
+                result = `${dro1 / sccc}/${dro2/sccc}`;
+            } else {
+                if (cel1 > 0 && cel2 > 0) {
+                    chisl1 = cel1 * znam1 + chisl1;
+                    chisl2 = cel2 * znam2 + chisl2;
+                    newq = NOD(chisl1, znam2);
+                    newq1 = NOD(chisl2, znam1);
+                    dro1 = (chisl1 / newq) * (chisl2 / newq1);
+                    dro2 = (znam1 / newq1) * (znam2 / newq);
+                    sccc = NOD(dro1, dro2);
+                    result = `${dro1 / sccc}/${dro2/sccc}`;
+                }
+                else {
+                    if (cel1 > 0) {
+                        chisl1 = cel1 * znam1 + chisl1;
+                        newq = NOD(chisl1, znam2);
+                        newq1 = NOD(chisl2, znam1);
+                        dro1 = (chisl1 / newq) * (chisl2 / newq1);
+                        dro2 = (znam1 / newq1) * (znam2 / newq);
+                        sccc = NOD(dro1, dro2);
+                        result = `${dro1 / sccc}/${dro2/sccc}`;
+                    }
+                    else if (cel2 > 0) {
+                        chisl2 = cel2 * znam2 + chisl2;
+                        newq = NOD(chisl1, znam2);
+                        newq1 = NOD(chisl2, znam1);
+                        dro1 = (chisl1 / newq) * (chisl2 / newq1);
+                        dro2 = (znam1 / newq1) * (znam2 / newq);
+                        sccc = NOD(dro1, dro2);
+                        result = `${dro1 / sccc}/${dro2/sccc}`;
+                    }
+                }
+            }
+            
     }
     document.getElementById("result").innerHTML = result;
 }
@@ -138,17 +201,7 @@ function resh1() {
     document.getElementById("ot").innerHTML = ot;
 }
 
-function NOD(perch, perch0) {
-    while (perch != 0 && perch0 != 0) {
-        if (perch > perch0) {
-            perch = perch % perch0;
-        } else {
-            perch0 = perch0 % perch;
-        }
-        
-    }
-    return perch + perch0;
-}
+
 function pposs() {
     var perch = Number(document.getElementById("perch").value);
     var perch0 = Number(document.getElementById("perch0").value);
@@ -156,10 +209,6 @@ function pposs() {
     rre = `${NOD(perch, perch0)}`;
 
     document.getElementById("rre").innerHTML = rre;
-}
-
-function NOK1(a, b) {
-    return a * b / NOD(a, b);
 }
 
 function NOK() {
@@ -220,4 +269,43 @@ function coren() {
     } else {
         document.getElementById('cor').innerHTML = 'Ошибка: введённые данные не являются числом.';
     }
+}
+
+function shirina() {
+    const dlina1 = Number(document.getElementById("dlina1").value);
+    const shirina1 = Number(document.getElementById("shirina1").value);
+    let sh1 = (dlina1 + shirina1) * 2;
+    document.getElementById("sh1").innerHTML = sh1;
+}
+
+function shirin() {
+    const storona = Number(document.getElementById("storona").value);
+    const storona1 = Number(document.getElementById("storona1").value);
+    const os = Number(document.getElementById("os").value);
+
+    let sh = storona + storona1 + os;
+    document.getElementById("sh").innerHTML = sh;
+}
+
+function shirina1() {
+    const dlina2 = Number(document.getElementById("dlina2").value);
+    const shirina2 = Number(document.getElementById("shirina2").value);
+    let dds = dlina2 * shirina2;
+
+    document.getElementById("dds").innerHTML = dds;
+}
+
+function plosh() {
+    const radius = Number(document.getElementById("radius").value);
+    let dds1 = Math.PI * radius * radius;
+
+    document.getElementById("dds1").innerHTML = dds1;
+}
+
+function pl() {
+    const storona0 = Number(document.getElementById("storona0").value);
+    const os1 = Number(document.getElementById("os1").value);
+
+    let dds2 = (storona0 * os1) / 2;
+    document.getElementById("dds2").innerHTML = dds2;
 }
